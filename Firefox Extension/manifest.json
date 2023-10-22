@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "Youtube Anti-SI",
+    "version": "1.0",
+    "description": "Automatically removes SI parameter from share urls.",
+    "icons": {
+        "48": "icon.svg"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.youtube.com/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{bf77d38a-7284-473d-aec9-a9577bbfc044}"
+        }
+    }
+}
