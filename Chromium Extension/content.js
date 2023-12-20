@@ -1,21 +1,23 @@
-(()=>{
-    function replaceYTLink(){
-        const el = document.querySelector("input.yt-copy-link-renderer");
-        if(!el) return false;
+(() => {
+    const observer = new MutationObserver(observerCallback);
+    let lastCallback;
+
+    function replaceYTLink() {
+        const el = document.getElementById("share-url");
+        if (!el) return false;
         const url = new URL(el.value);
         const searchParams = new URLSearchParams(url.search);
-        if(!searchParams.has("si")) return false;
+        if (!searchParams.has("si")) return false;
         searchParams.delete("si");
         url.search = searchParams;
         el.value = url + "";
         return true;
     }
-
-    function loop(){
-        replaceYTLink();
-
-        setTimeout(()=>requestIdleCallback(loop), 500);
+    function observerCallback(mutationList, observer) {
+        cancelIdleCallback(lastCallback);
+        lastCallback = requestIdleCallback(replaceYTLink, { timeout: 3000 });
     }
-
-    requestIdleCallback(loop);
-})()
+    requestIdleCallback(() => {
+        observer.observe(document.querySelector("ytd-app"), { childList: true, subtree: true });
+    });
+})();
