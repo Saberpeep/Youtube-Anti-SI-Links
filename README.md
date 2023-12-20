@@ -4,7 +4,7 @@ Browser extension(s) to automatically remove the `si` parameter from share urls 
 
 ## Firefox
 
-The Firefox extension is pending approval but will be published on the [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/youtube-anti-si/) when available.
+The Firefox extension is published at [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/youtube-anti-si/).
 
 ### Installing Manually / Testing
 
