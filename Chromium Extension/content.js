@@ -18,6 +18,6 @@
         lastCallback = requestIdleCallback(replaceYTLink, { timeout: 3000 });
     }
     requestIdleCallback(() => {
-        observer.observe(document.querySelector("ytd-app"), { childList: true, subtree: true });
+        observer.observe(document.querySelector("ytd-app, ytmusic-app"), { childList: true, subtree: true });
     });
 })();
